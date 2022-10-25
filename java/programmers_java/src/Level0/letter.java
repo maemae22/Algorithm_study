@@ -10,8 +10,8 @@ public class letter {
         System.out.println(Arrays.toString(messageArr));
 
         int messageNum = 0;
-        for(int i=0 ; i<messageArr.length; i++ ) {
-            messageNum += messageArr[i].length();
+        for (String s : messageArr) {
+            messageNum += s.length();
             //System.out.println(messageArr[i].length());
         }
         System.out.println(messageNum);
