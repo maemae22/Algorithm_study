@@ -1,4 +1,4 @@
-package src.src.Level0;
+package Level0;
 
 public class ReverseString {
 

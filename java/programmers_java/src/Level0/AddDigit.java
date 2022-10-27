@@ -1,4 +1,4 @@
-package src.src.Level0;
+package Level0;
 
 public class AddDigit {
     public static int solution(int n) {
