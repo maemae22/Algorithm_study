@@ -2,7 +2,7 @@ package Level0;
 
 import java.util.Arrays;
 
-public class reverseArray {
+public class ReverseArray {
     public static int[] solution(int[] num_list) {
         int[] answer = new int[num_list.length];
         for(int i=0 ; i<answer.length; i++) {

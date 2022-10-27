@@ -2,7 +2,7 @@ package Level0;
 
 import java.util.Arrays;
 
-public class letter {
+public class Letter {
 
     public static int solution(String message) {
         //String[] messageArr = message.split(" ");

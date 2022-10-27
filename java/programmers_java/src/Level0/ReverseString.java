@@ -1,6 +1,6 @@
 package Level0;
 
-public class reverseString {
+public class ReverseString {
 
     public static String solution(String my_string) {
         String[] strArr = my_string.split("");

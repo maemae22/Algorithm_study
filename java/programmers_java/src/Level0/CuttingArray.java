@@ -2,7 +2,7 @@ package Level0;
 
 import java.util.Arrays;
 
-public class cuttingArray {
+public class CuttingArray {
     public static int[] solution(int[] numbers, int num1, int num2) {
         int[] answer = new int[num2-num1+1];
         System.arraycopy(numbers, num1, answer, 0, answer.length);
