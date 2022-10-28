@@ -1,7 +1,7 @@
 package Level0;
 
 public class Decryption {
-    public String solution(String cipher, int code) {
+    public static String solution(String cipher, int code) {
         // 방법1 : 이게 더 빠름
         /*
         String[] str = cipher.split("");
@@ -24,5 +24,9 @@ public class Decryption {
             }
         }
         return answer;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution("dfjardstddetckdaccccdegk", 4));
     }
 }
