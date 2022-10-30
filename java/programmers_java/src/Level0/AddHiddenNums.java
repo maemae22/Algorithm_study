@@ -1,20 +1,28 @@
 package Level0;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class AddHiddenNums {
     public static int solution(String my_string) {
+        /*
         String replace = my_string.replaceAll("[^0-9]", " ");
-        System.out.println(replace);
-
         String[] str = replace.split(" ");
-        System.out.println(Arrays.toString(str));
 
         int sum = 0;
         for(String tmp : str) {
             if(!(tmp.equals(""))) {
                 sum += Integer.parseInt(tmp);
             }
+        }
+        return sum;
+        */
+
+        String replace = my_string.replaceAll("[^0-9]", " ");
+        StringTokenizer st = new StringTokenizer(replace, " ");
+
+        int sum = 0;
+        while(st.hasMoreTokens()) {
+            sum += Integer.parseInt(st.nextToken());
         }
         return sum;
     }
