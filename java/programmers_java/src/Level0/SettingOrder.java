@@ -12,7 +12,8 @@ public class SettingOrder {
         for(int tmp : emergency) {
             copy.add(tmp);
         }
-        Collections.sort(copy, Collections.reverseOrder());
+        //Collections.sort(copy, Collections.reverseOrder());
+        copy.sort(Collections.reverseOrder());
 
         for(int i=0; i<emergency.length; i++) {
             answer[i] = copy.indexOf(emergency[i]) + 1;
