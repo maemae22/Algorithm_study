@@ -1,7 +1,7 @@
 package Level2;
 
 public class CorrectBracket {
-    boolean solution(String s) {
+    static boolean solution(String s) {
         /*
         String[] str = s.split("");
         int open = 0;
@@ -31,5 +31,9 @@ public class CorrectBracket {
 
         return open == close ;
 
+    }
+
+    public static void main(String[] args) {
+        System.out.println(solution("(()))("));
     }
 }
