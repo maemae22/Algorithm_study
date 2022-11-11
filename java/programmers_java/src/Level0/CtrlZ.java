@@ -1,5 +1,7 @@
 package Level0;
 
+import java.util.StringTokenizer;
+
 public class CtrlZ {
     static public int solution(String s) {
         String[] arr = s.split(" ");
@@ -42,5 +44,36 @@ public class CtrlZ {
         System.out.println(solution(example2));
         System.out.println(solution(example3));
 
+    }
+
+    // 프로그래머스 최대한님 코드 (풀이2)
+    public int solution2(String s) {
+        StringTokenizer st = new StringTokenizer(s);
+
+        int token_cnt = st.countTokens();
+        String[] arr1 = new String[token_cnt];
+
+        for(int i=0; i<token_cnt; i++){
+            arr1[i]=st.nextToken();
+        }
+
+        int ans=0;
+        int z_cnt=0;
+
+        for(int i=0; i<token_cnt; i++){
+            if(arr1[i].equals("Z")){
+                if(z_cnt !=0) { z_cnt +=2; }
+                else z_cnt++;
+                if(i<z_cnt) continue;
+                ans -= Integer.parseInt(arr1[i-z_cnt]);
+
+            } else {
+                ans += Integer.parseInt(arr1[i]);
+                z_cnt=0;
+            }
+
+        }
+
+        return ans;
     }
 }
