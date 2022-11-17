@@ -7,10 +7,11 @@ public class StringHandling {
         }
 
         s = s.replaceAll("[0-9]","");
-        if(s.equals("")) {
-            return true;
-        } else {
-            return false;
-        }
+//        if(s.equals("")) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+        return s.equals("");
     }
 }
