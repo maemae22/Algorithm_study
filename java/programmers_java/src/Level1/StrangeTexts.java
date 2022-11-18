@@ -1,4 +1,4 @@
-package Practice;
+package Level1;
 
 public class StrangeTexts {
     public String solution(String s) {
