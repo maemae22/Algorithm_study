@@ -15,13 +15,13 @@ public class MockTest {
         int max = Math.max(Math.max(oneScore, twoScore), threeScore);
 
         int count = 0;
-        for(int i=0; i<score.length; i++) {
-            if(score[i] == max) {
+        for (int tmp : score) {
+            if (tmp == max) {
                 count++;
             }
         }
 
-        int answer[] = new int[count];
+        int[] answer = new int[count];
         int index = 0;
         for(int i=0; i<score.length; i++) {
             if(score[i] == max) {
@@ -66,13 +66,13 @@ public class MockTest {
         int max = Math.max(Math.max(score[0], score[1]), score[2]);
 
         int count = 0;
-        for(int i=0; i<score.length; i++) {
-            if(score[i] == max) {
+        for (int tmp : score) {
+            if (tmp == max) {
                 count++;
             }
         }
 
-        int answer[] = new int[count];
+        int[] answer = new int[count];
         int index = 0;
         for(int i=0; i<score.length; i++) {
             if(score[i] == max) {
