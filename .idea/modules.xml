@@ -12,7 +12,9 @@
       <module fileurl="file://$PROJECT_DIR$/java/java.iml" filepath="$PROJECT_DIR$/java/java.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/programmers_java/programmers_java.iml" filepath="$PROJECT_DIR$/java/programmers_java/programmers_java.iml" />
       <module fileurl="file://$PROJECT_DIR$/python/programmers_python/programmers_python.iml" filepath="$PROJECT_DIR$/python/programmers_python/programmers_python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sql/programmers_sql/programmers_sql.iml" filepath="$PROJECT_DIR$/sql/programmers_sql/programmers_sql.iml" />
       <module fileurl="file://$PROJECT_DIR$/python/python.iml" filepath="$PROJECT_DIR$/python/python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sql/sql.iml" filepath="$PROJECT_DIR$/sql/sql.iml" />
     </modules>
   </component>
 </project>
