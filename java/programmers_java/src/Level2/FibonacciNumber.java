@@ -1,7 +1,8 @@
-package Practice;
+package Level2;
 
 import java.util.*;
 
+// 레벨2 - 피보나치 수
 public class FibonacciNumber {
     public int solution(int n) {
         List<Integer> fibo = new ArrayList<>();
