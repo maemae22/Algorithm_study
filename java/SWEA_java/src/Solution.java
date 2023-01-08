@@ -42,6 +42,7 @@ public class Solution
             int wow = 0;
             int index = 0;
 
+
             if (limit.length()<2) {
                 tmp = Integer.parseInt(limit);
                 if (tmp<first || (first==0 && tmp<second)) {
