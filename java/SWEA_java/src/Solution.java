@@ -32,6 +32,7 @@ public class Solution
             first = Integer.parseInt(token.nextToken());
             second = Integer.parseInt(token.nextToken());
 
+
             String answer = "";
 //            String num = "";
 
