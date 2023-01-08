@@ -14,10 +14,13 @@ public class Solution
 //        T=sc.nextInt();
 
 //        sc.nextLine();
+        String limit = "";
+        int first = 0;
+        int second = 0;
+
 
         for(int test_case = 1; test_case <= T; test_case++) {
             StringTokenizer token = new StringTokenizer(br.readLine());
-
 
 //            String input = sc.nextLine();
 //            String[] split = input.split(" ");
@@ -25,9 +28,9 @@ public class Solution
 //            int first = Integer.parseInt(split[1]);
 //            int second = Integer.parseInt(split[2]);
 
-            String limit = token.nextToken();
-            int first = Integer.parseInt(token.nextToken());
-            int second = Integer.parseInt(token.nextToken());
+            limit = token.nextToken();
+            first = Integer.parseInt(token.nextToken());
+            second = Integer.parseInt(token.nextToken());
 
             String answer = "";
 //            String num = "";
