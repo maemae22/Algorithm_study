@@ -71,6 +71,7 @@ public class Solution
                     } else if (numbersi < first) {
                         if (answer.equals("")) {
                             wow=1;
+                            break;
                         } else {
                             // 맨뒤에꺼 없애고 &&비교하고 찾아서 하나 없애기
                             if (Integer.parseInt(answer.charAt(answer.length() - 1) + "") == second) {
@@ -84,6 +85,7 @@ public class Solution
                                 }
                                 if (index == 0 || answer.length() - 1 == 0) {
                                     wow = 1;
+                                    break;
                                 } else {
                                     // answer의 index 번째꺼를 first로 바꾸기 (원래는 second였을 것..)
                                     answer = answer.substring(0, index) + first + answer.substring(index + 1);
@@ -96,14 +98,7 @@ public class Solution
                     }
                 }
 
-                // 이거 맞나;
-                if (length+1 != limit.length()) {
-                    while (length+1 != limit.length()) {
-                        answer += second;
-                        length++;
-//                        System.out.println("여기에 걸리셨숑" + length);
-                    }
-                }
+
                 if (wow==1) {
 //                    answer = String.valueOf(second).repeat(limit.length()-1);
 //                    answer = "";
@@ -111,6 +106,13 @@ public class Solution
 //                        answer += second+"";
 //                    }
                     answer = limit.substring(1).replaceAll(".", second+"");
+                } else if (length+1 != limit.length()) {
+                // 이거 맞나;
+                    while (length+1 != limit.length()) {
+                        answer += second;
+                        length++;
+//                        System.out.println("여기에 걸리셨숑" + length);
+                    }
                 }
 //                answer = Long.parseLong(num);
             }
