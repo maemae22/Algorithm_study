@@ -38,7 +38,7 @@ public class Solution
 
             int tmp = 0;
 //            int[] numbers = new int[limit.length()];
-            long length = 0;
+            int length = 0;
             int wow = 0;
             int index = 0;
 
