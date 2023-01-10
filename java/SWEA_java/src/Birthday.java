@@ -15,6 +15,8 @@ public class Birthday
         for(int test_case = 1; test_case <= T; test_case++) {
             StringTokenizer token = new StringTokenizer(br.readLine());
 
+            StringBuilder stringBuilder = new StringBuilder();
+
             limit = token.nextToken();
             first = Integer.parseInt(token.nextToken());
             second = Integer.parseInt(token.nextToken());
@@ -36,47 +38,59 @@ public class Birthday
             } else {
 
                 for (int i=0; i<limit.length(); i++) {
-                    int numbersi = Integer.parseInt(limit.charAt(i)+"");
+                    int numbersi = Integer.parseInt(String.valueOf(limit.charAt(i)));
 
                     if (second <= numbersi) {
-                        answer += second;
+//                        answer += second;
+                        stringBuilder.append(second);
                         length = i;
                     } else if (first == numbersi){
-                        answer += first;
+//                        answer += first;
+                        stringBuilder.append(first);
                         length = i;
                     } else if (first<numbersi && numbersi <second) {
-                        answer += first;
+//                        answer += first;
+                        stringBuilder.append(first);
                         length = i;
                         break;
                     } else if (numbersi < first) {
-                        if (answer.equals("")) {
+                        if (stringBuilder.toString().equals("")) {
                             wow=1;
                             break;
                         } else {
                             // 맨뒤에꺼 없애고 &&비교하고 찾아서 하나 없애기
-                            if (Integer.parseInt(answer.charAt(answer.length() - 1) + "") == second) {
-                                answer = answer.substring(0, answer.length() - 1) + first;
-                            } else if (Integer.parseInt(answer.charAt(answer.length() - 1) + "") == first) {
-                                for (int j = answer.length() - 1; j >= 0; j--) {
-                                    if (Integer.parseInt(answer.charAt(j) + "") != first) {
+                            if (Integer.parseInt(stringBuilder.toString().charAt(stringBuilder.toString().length() - 1) + "") == second) {
+                                // 이 부분이 문제임 !!!
+                                stringBuilder.substring(0, stringBuilder.toString().length() - 1);
+                                stringBuilder.append(first);
+                            } else if (Integer.parseInt(stringBuilder.toString().charAt(stringBuilder.toString().length() - 1) + "") == first) {
+                                for (int j = stringBuilder.toString().length() - 1; j >= 0; j--) {
+                                    if (Integer.parseInt(stringBuilder.toString().charAt(j) + "") != first) {
                                         index = j;
                                         break;
                                     }
                                 }
-                                if (index == 0 || answer.length() - 1 == 0) {
+                                if (index == 0 || stringBuilder.toString().length() - 1 == 0) {
                                     wow = 1;
                                     break;
                                 } else {
                                     // answer의 index 번째꺼를 first로 바꾸기 (원래는 second였을 것..)
-                                    answer = answer.substring(0, index) + first + answer.substring(index + 1);
+//                                    answer = answer.substring(0, index) + first + answer.substring(index + 1);
+                                    stringBuilder.substring(0, index);
+                                    stringBuilder.append(first);
+                                    stringBuilder.append(stringBuilder.substring(index + 1));
+
                                 }
                             }
                         }
-                        answer += second;
+//                        answer += second;
+                        stringBuilder.append(second);
                         length = i;
                         break;
                     }
                 }
+
+                answer = stringBuilder.toString();
 
                 if (wow==1) {
 //                    answer = String.valueOf(second).repeat(limit.length()-1);
