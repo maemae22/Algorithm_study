@@ -1,8 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-import java.io.FileInputStream;
-public class Solution
+public class Birthday
 {
     public static void main(String args[]) throws Exception
     {
@@ -47,7 +46,7 @@ public class Solution
                 tmp = Integer.parseInt(limit);
                 if (tmp<first || (first==0 && tmp<second)) {
                     answer = -1+"";
-                } else if (first==0 && tmp==second) {
+                } else if ((first==0 && tmp==second) || (second <= tmp)) {
                     answer = second+"";
                 }
             } else {
@@ -108,11 +107,12 @@ public class Solution
                     answer = limit.substring(1).replaceAll(".", second+"");
                 } else if (length+1 != limit.length()) {
                 // 이거 맞나;
-                    while (length+1 != limit.length()) {
-                        answer += second;
-                        length++;
-//                        System.out.println("여기에 걸리셨숑" + length);
-                    }
+//                    while (length+1 != limit.length()) {
+//                        answer += second;
+//                        length++;
+////                        System.out.println("여기에 걸리셨숑" + length);
+//                    }
+                    answer = answer + limit.substring(length+1).replaceAll(".", second+"");
                 }
 //                answer = Long.parseLong(num);
             }
