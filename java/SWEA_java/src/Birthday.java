@@ -8,39 +8,23 @@ public class Birthday
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
 
-//        Scanner sc = new Scanner(System.in);
-//        int T;
-//        T=sc.nextInt();
-
-//        sc.nextLine();
         String limit = "";
         int first = 0;
         int second = 0;
 
-
         for(int test_case = 1; test_case <= T; test_case++) {
             StringTokenizer token = new StringTokenizer(br.readLine());
-
-//            String input = sc.nextLine();
-//            String[] split = input.split(" ");
-//            String limit = split[0];
-//            int first = Integer.parseInt(split[1]);
-//            int second = Integer.parseInt(split[2]);
 
             limit = token.nextToken();
             first = Integer.parseInt(token.nextToken());
             second = Integer.parseInt(token.nextToken());
 
-
             String answer = "";
-//            String num = "";
 
             int tmp = 0;
-//            int[] numbers = new int[limit.length()];
             int length = 0;
             int wow = 0;
             int index = 0;
-
 
             if (limit.length()<2) {
                 tmp = Integer.parseInt(limit);
@@ -50,9 +34,6 @@ public class Birthday
                     answer = second+"";
                 }
             } else {
-//                for (int i=0; i<numbers.length; i++) {
-//                    numbers[i] = Integer.parseInt(limit.charAt(i)+"");
-//                }
 
                 for (int i=0; i<limit.length(); i++) {
                     int numbersi = Integer.parseInt(limit.charAt(i)+"");
@@ -96,7 +77,6 @@ public class Birthday
                         break;
                     }
                 }
-
 
                 if (wow==1) {
 //                    answer = String.valueOf(second).repeat(limit.length()-1);
