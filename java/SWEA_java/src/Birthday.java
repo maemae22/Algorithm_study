@@ -38,7 +38,8 @@ public class Birthday
             } else {
 
                 for (int i=0; i<limit.length(); i++) {
-                    int numbersi = Integer.parseInt(String.valueOf(limit.charAt(i)));
+//                    int numbersi = Integer.parseInt(String.valueOf(limit.charAt(i)));
+                    int numbersi = Character.getNumericValue(limit.charAt(i));
 
                     if (second <= numbersi) {
 //                        answer += second;
@@ -59,7 +60,7 @@ public class Birthday
                             break;
                         } else {
                             // 맨뒤에꺼 없애고 &&비교하고 찾아서 하나 없애기
-                            if (Integer.parseInt(stringBuilder.toString().charAt(stringBuilder.toString().length() - 1) + "") == second) {
+                            if (stringBuilder.charAt(stringBuilder.length() - 1) - '0' == second) {
                                 // 이 부분이 문제임 !!!
 //                                int cut = stringBuilder.toString().length() - 1 ;
 //                                stringBuilder.substring(0, cut);
@@ -67,14 +68,14 @@ public class Birthday
                                 stringBuilder.delete(stringBuilder.length()-1, stringBuilder.length());
                                 stringBuilder.append(first);
 
-                            } else if (Integer.parseInt(stringBuilder.toString().charAt(stringBuilder.toString().length() - 1) + "") == first) {
-                                for (int j = stringBuilder.toString().length() - 1; j >= 0; j--) {
-                                    if (Integer.parseInt(stringBuilder.toString().charAt(j) + "") != first) {
+                            } else if (stringBuilder.charAt(stringBuilder.length() - 1) - '0' == first) {
+                                for (int j = stringBuilder.length() - 1; j >= 0; j--) {
+                                    if (stringBuilder.charAt(j) - '0' != first) {
                                         index = j;
                                         break;
                                     }
                                 }
-                                if (index == 0 || stringBuilder.toString().length() - 1 == 0) {
+                                if (index == 0 || stringBuilder.length() - 1 == 0) {
                                     wow = 1;
                                     break;
                                 } else {
