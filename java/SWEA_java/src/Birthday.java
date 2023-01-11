@@ -8,11 +8,11 @@ public class Birthday
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
 
-        String limit = "";
-        int first = 0;
-        int second = 0;
-
         for(int test_case = 1; test_case <= T; test_case++) {
+            String limit = "";
+            int first = 0;
+            int second = 0;
+
             StringTokenizer token = new StringTokenizer(br.readLine());
 
             StringBuilder stringBuilder = new StringBuilder();
