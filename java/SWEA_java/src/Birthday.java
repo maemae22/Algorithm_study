@@ -25,7 +25,7 @@ public class Birthday
 
             int length = 0;
             int wow = 0;
-//            int index = 0;
+            int index = -1;
 
             if (limit.length()<2) {
                 int tmp = 0;
@@ -64,7 +64,6 @@ public class Birthday
 
                             } else if (stringBuilder.charAt(stringBuilder.length() - 1) - '0' == first) {
 
-                                int index = 0;
                                 for (int j = stringBuilder.length()-1; j >= 0; j--) {
                                     if (stringBuilder.charAt(j) - '0' != first) {
                                         index = j;
@@ -72,14 +71,19 @@ public class Birthday
                                     }
                                 }
                                 if (index == 0 || stringBuilder.length() - 1 == 0) {
-                                    wow = 1;
+                                    wow = 3;
+                                    break;
+                                } else if (index == -1) {
+                                    wow=1;
                                     break;
                                 } else {
                                     // answer의 index 번째꺼를 first로 바꾸기 (원래는 second였을 것..)
 //                                    answer = answer.substring(0, index) + first + answer.substring(index + 1);
                                     stringBuilder.substring(0, index);
                                     stringBuilder.append(first);
-                                    stringBuilder.append(stringBuilder.substring(index + 1));
+                                    wow=2;
+                                    break;
+//                                    stringBuilder.append(stringBuilder.substring(index + 1));
                                 }
                             }
                         }
@@ -92,6 +96,12 @@ public class Birthday
 
                 if (wow==1) {
                     answer = limit.substring(1).replaceAll(".", second+"");
+                } else if (wow == 2) {
+                    answer = answer + limit.substring(index+1).replaceAll(".", second+"");
+                } else if (wow==3 && Character.getNumericValue(limit.charAt(1)) <first ) {
+                    answer = limit.substring(1).replaceAll(".", second+"");
+                } else if (wow == 3) {
+                    answer = String.valueOf(first) + limit.substring(1).replaceAll(".", second+"");
                 } else if (length+1 != limit.length()) {
                     answer = answer + limit.substring(length+1).replaceAll(".", second+"");
                 }
