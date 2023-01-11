@@ -61,8 +61,12 @@ public class Birthday
                             // 맨뒤에꺼 없애고 &&비교하고 찾아서 하나 없애기
                             if (Integer.parseInt(stringBuilder.toString().charAt(stringBuilder.toString().length() - 1) + "") == second) {
                                 // 이 부분이 문제임 !!!
-                                stringBuilder.substring(0, stringBuilder.toString().length() - 1);
+//                                int cut = stringBuilder.toString().length() - 1 ;
+//                                stringBuilder.substring(0, cut);
+
+                                stringBuilder.delete(stringBuilder.length()-1, stringBuilder.length());
                                 stringBuilder.append(first);
+
                             } else if (Integer.parseInt(stringBuilder.toString().charAt(stringBuilder.toString().length() - 1) + "") == first) {
                                 for (int j = stringBuilder.toString().length() - 1; j >= 0; j--) {
                                     if (Integer.parseInt(stringBuilder.toString().charAt(j) + "") != first) {
