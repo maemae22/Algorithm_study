@@ -1,27 +1,33 @@
 import java.util.*;
 import java.io.*;
 
-public class Birthday
-{
+public class Birthday {
 
-    // two가 더 크면 ture를 반환하는 함수 (one과 two의 자릿수는 동일하다)
-    public static boolean Bigger(String one, String two) {
-        boolean answer = false;
-
-        for (int i=0; i<one.length(); i++) {
-            if (one.charAt(i) < two.charAt(i)) {
-                return true;
-            }
-        }
-        return answer;
-    }
+//    // two가 더 크면 ture를 반환하는 함수 (one과 two의 자릿수는 동일하다)
+//    public static boolean Bigger(String one, String two) {
+//        boolean answer = false;
+//
+//        for (int i=0; i<one.length(); i++) {
+//            if (one.charAt(i) < two.charAt(i)) {
+//                return true;
+//            }
+//
+//            if (one.equals(two)) {
+//                return true;
+//            }
+//        }
+//        return answer;
+//    }
 
     public static void main(String args[]) throws Exception
     {
+//        System.out.println(Bigger("444", "444"));
+
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int T = Integer.parseInt(br.readLine());
 
         for(int test_case = 1; test_case <= T; test_case++) {
+
             String limit = "";
             int first = 0;
             int second = 0;
@@ -48,10 +54,18 @@ public class Birthday
                     answer = -1+"";
                 } else if ((first==0 && tmp==second) || (second <= tmp)) {
                     answer = second+"";
+                } else if (tmp < second) {
+                    answer = first + "";
                 }
             } else {
 
                 for (int i=0; i<limit.length(); i++) {
+
+                    if (second < Character.getNumericValue(limit.charAt(0))) {
+                        wow = 6;
+                        break;
+                    }
+
                     int numbersi = Character.getNumericValue(limit.charAt(i));
 
                     if (second <= numbersi) {
@@ -62,17 +76,21 @@ public class Birthday
                         length = i;
                     } else if (first<numbersi && numbersi <second) {
 
-                        int nowlength = stringBuilder.length();
-                        String nowInteger = stringBuilder.toString();
-                        String nowSplitString = limit.substring(0, nowlength);
-
-                        if (Bigger(nowInteger, nowSplitString)) {
-                            stringBuilder.append(second);
-                        } else {
-                            stringBuilder.append(first);
-                        }
+//                        int nowlength = stringBuilder.length();
+//                        String nowInteger = stringBuilder.toString();
+//                        String nowSplitString = limit.substring(0, nowlength);
+//
+//                        if (Bigger(nowInteger, nowSplitString)) {
+//                            stringBuilder.append(second);
+//                        } else {
+//                            stringBuilder.append(first);
+//                        }
+//                        length = i;
+                        stringBuilder.append(first);
                         length = i;
+                        wow = 5;
                         break;
+
                     } else if (numbersi < first) {
                         if (stringBuilder.toString().equals("")) {
                             wow=1;
@@ -125,8 +143,12 @@ public class Birthday
                     answer = limit.substring(1).replaceAll(".", second+"");
                 } else if (wow == 3) {
                     answer = String.valueOf(first) + limit.substring(1).replaceAll(".", second+"");
+                } else if (wow==6) {
+                    answer = limit.replaceAll(".", second+"");
+                } else if (wow==5) {
+                    answer = answer + limit.substring(length).replaceAll(".", second+"");
                 } else if (length+1 != limit.length()) {
-                    answer = answer + limit.substring(length+1).replaceAll(".", second+"");
+                    answer = answer + limit.substring(length).replaceAll(".", second+"");
                 }
             }
 
