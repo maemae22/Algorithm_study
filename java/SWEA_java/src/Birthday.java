@@ -107,6 +107,9 @@ public class Birthday
                     answer = answer + limit.substring(length+1).replaceAll(".", second+"");
                 }
             }
+
+            answer = answer.replaceFirst("^0+(?!$)", "");
+
             System.out.println("#"+test_case+" "+answer);
         }
     }
