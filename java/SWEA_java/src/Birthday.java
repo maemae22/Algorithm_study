@@ -3,6 +3,19 @@ import java.io.*;
 
 public class Birthday
 {
+
+    // two가 더 크면 ture를 반환하는 함수 (one과 two의 자릿수는 동일하다)
+    public static boolean Bigger(String one, String two) {
+        boolean answer = false;
+
+        for (int i=0; i<one.length(); i++) {
+            if (one.charAt(i) < two.charAt(i)) {
+                return true;
+            }
+        }
+        return answer;
+    }
+
     public static void main(String args[]) throws Exception
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -48,7 +61,16 @@ public class Birthday
                         stringBuilder.append(first);
                         length = i;
                     } else if (first<numbersi && numbersi <second) {
-                        stringBuilder.append(first);
+
+                        int nowlength = stringBuilder.length();
+                        String nowInteger = stringBuilder.toString();
+                        String nowSplitString = limit.substring(0, nowlength);
+
+                        if (Bigger(nowInteger, nowSplitString)) {
+                            stringBuilder.append(second);
+                        } else {
+                            stringBuilder.append(first);
+                        }
                         length = i;
                         break;
                     } else if (numbersi < first) {
