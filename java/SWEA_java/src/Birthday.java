@@ -79,7 +79,8 @@ public class Birthday
                                 } else {
                                     // answer의 index 번째꺼를 first로 바꾸기 (원래는 second였을 것..)
 //                                    answer = answer.substring(0, index) + first + answer.substring(index + 1);
-                                    stringBuilder.substring(0, index);
+//                                    stringBuilder.substring(0, index);
+                                    stringBuilder.replace(index, stringBuilder.length(), "");
                                     stringBuilder.append(first);
                                     wow=2;
                                     break;
