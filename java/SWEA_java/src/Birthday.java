@@ -23,12 +23,13 @@ public class Birthday
 
             String answer = "";
 
-            int tmp = 0;
             int length = 0;
             int wow = 0;
-            int index = 0;
+//            int index = 0;
 
             if (limit.length()<2) {
+                int tmp = 0;
+
                 tmp = Integer.parseInt(limit);
                 if (tmp<first || (first==0 && tmp<second)) {
                     answer = -1+"";
@@ -62,7 +63,9 @@ public class Birthday
                                 stringBuilder.append(first);
 
                             } else if (stringBuilder.charAt(stringBuilder.length() - 1) - '0' == first) {
-                                for (int j = stringBuilder.length() - 1; j >= 0; j--) {
+
+                                int index = 0;
+                                for (int j = stringBuilder.length()-1; j >= 0; j--) {
                                     if (stringBuilder.charAt(j) - '0' != first) {
                                         index = j;
                                         break;
