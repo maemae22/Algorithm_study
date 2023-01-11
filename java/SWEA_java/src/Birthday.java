@@ -38,19 +38,15 @@ public class Birthday
             } else {
 
                 for (int i=0; i<limit.length(); i++) {
-//                    int numbersi = Integer.parseInt(String.valueOf(limit.charAt(i)));
                     int numbersi = Character.getNumericValue(limit.charAt(i));
 
                     if (second <= numbersi) {
-//                        answer += second;
                         stringBuilder.append(second);
                         length = i;
                     } else if (first == numbersi){
-//                        answer += first;
                         stringBuilder.append(first);
                         length = i;
                     } else if (first<numbersi && numbersi <second) {
-//                        answer += first;
                         stringBuilder.append(first);
                         length = i;
                         break;
@@ -61,9 +57,6 @@ public class Birthday
                         } else {
                             // 맨뒤에꺼 없애고 &&비교하고 찾아서 하나 없애기
                             if (stringBuilder.charAt(stringBuilder.length() - 1) - '0' == second) {
-                                // 이 부분이 문제임 !!!
-//                                int cut = stringBuilder.toString().length() - 1 ;
-//                                stringBuilder.substring(0, cut);
 
                                 stringBuilder.delete(stringBuilder.length()-1, stringBuilder.length());
                                 stringBuilder.append(first);
@@ -84,36 +77,21 @@ public class Birthday
                                     stringBuilder.substring(0, index);
                                     stringBuilder.append(first);
                                     stringBuilder.append(stringBuilder.substring(index + 1));
-
                                 }
                             }
                         }
-//                        answer += second;
                         stringBuilder.append(second);
                         length = i;
                         break;
                     }
                 }
-
                 answer = stringBuilder.toString();
 
                 if (wow==1) {
-//                    answer = String.valueOf(second).repeat(limit.length()-1);
-//                    answer = "";
-//                    for (int k=0; k<limit.length()-1; k++) {
-//                        answer += second+"";
-//                    }
                     answer = limit.substring(1).replaceAll(".", second+"");
                 } else if (length+1 != limit.length()) {
-                // 이거 맞나;
-//                    while (length+1 != limit.length()) {
-//                        answer += second;
-//                        length++;
-////                        System.out.println("여기에 걸리셨숑" + length);
-//                    }
                     answer = answer + limit.substring(length+1).replaceAll(".", second+"");
                 }
-//                answer = Long.parseLong(num);
             }
             System.out.println("#"+test_case+" "+answer);
         }
