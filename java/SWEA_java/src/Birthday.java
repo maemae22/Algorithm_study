@@ -57,6 +57,7 @@ public class Birthday {
                 } else if (tmp < second) {
                     answer = first + "";
                 }
+
             } else {
 
                 for (int i=0; i<limit.length(); i++) {
@@ -145,9 +146,9 @@ public class Birthday {
                     answer = String.valueOf(first) + limit.substring(1).replaceAll(".", second+"");
                 } else if (wow==6) {
                     answer = limit.replaceAll(".", second+"");
-                } else if (wow==5) {
-                    answer = answer + limit.substring(length).replaceAll(".", second+"");
                 } else if (length+1 != limit.length()) {
+                    answer = answer + limit.substring(length+1).replaceAll(".", second+"");
+                } else if (wow==5) {
                     answer = answer + limit.substring(length).replaceAll(".", second+"");
                 }
             }
