@@ -1,4 +1,0 @@
--- 레벨1 - 조건에 맞는 회원수 구하기
-
--- 코드를 입력하세요
-SELECT COUNT(*) AS USERS FROM USER_INFO WHERE AGE BETWEEN 20 AND 29 AND JOINED LIKE '2021%';
