@@ -1,0 +1,25 @@
+- MySQL에서 키워드와 구문, 문자열은 대소문자를 구분하지 않습니다.
+- MySQL에서 테이블 명과 필드의 이름은 대소문자를 구분합니다.
+
+# INSERT : INSERT INTO [table name] VALUES (value1, value2, value3…);
+INSERT INTO User(ID, Name, BirthDay) VALUES (1, '김태하', '1992-11-04');
+
+# SELECT : SELECT * FROM [table];
+SELECT * FROM User;
+
+# UPDATE : UPDATE [table] SET [column]=[value] WHERE [condition];
+UPDATE User SET Age = 30 WHERE Name = '김태하';
+
+# DELETE : DELETE FROM [table] WHERE [condition];
+DELETE FROM User WHERE Name = '김태하';
+
+# JOIN
+SELECT
+테이블이름.조회할 테이블,
+테이블이름.조회할 테이블
+FROM 기준테이블 이름
+(INNER, LEFT, RIGHT, FULL) JOIN 조인테이블 이름
+ON 기준테이블이름.기준키 = 조인테이블이름.기준키;
+
+SELECT users.id, users.name, users.age, users.gender, accounts.account_type
+FROM users JOIN accounts ON accounts.id = users.account_id;
