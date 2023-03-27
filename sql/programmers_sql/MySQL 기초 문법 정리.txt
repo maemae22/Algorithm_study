@@ -23,3 +23,24 @@ ON 기준테이블이름.기준키 = 조인테이블이름.기준키;
 
 SELECT users.id, users.name, users.age, users.gender, accounts.account_type
 FROM users JOIN accounts ON accounts.id = users.account_id;
+
+# SELECT문 문법 작성 순서
+① SELECT 컬럼명
+② FROM 테이블명
+③ WHERE 조건식
+④ GROUP BY 컬럼명
+⑤ HAVING 조건식
+⑥ ORDER BY 칼럼명
+
+SELECT
+  CategoryID,
+  MAX(Price) AS MaxPrice,
+  MIN(Price) AS MinPrice,
+  TRUNCATE((MAX(Price) + MIN(Price)) / 2, 2) AS MedianPrice,
+  TRUNCATE(AVG(Price), 2) AS AveragePrice
+FROM Products
+WHERE CategoryID > 2
+GROUP BY CategoryID
+HAVING
+  AveragePrice BETWEEN 20 AND 30
+  AND MedianPrice < 40;
