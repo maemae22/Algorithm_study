@@ -15,8 +15,8 @@ DELETE FROM User WHERE Name = '김태하';
 
 # JOIN
 SELECT
-테이블이름.조회할 테이블,
-테이블이름.조회할 테이블
+테이블이름.조회할 컬럼,
+테이블이름.조회할 컬럼
 FROM 기준테이블 이름
 (INNER, LEFT, RIGHT, FULL) JOIN 조인테이블 이름
 ON 기준테이블이름.기준키 = 조인테이블이름.기준키;
