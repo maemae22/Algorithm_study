@@ -70,4 +70,52 @@ public class S8898_3차원농부 {
 
         return answer;
     }
+
+    public static void main2(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
+        for (int testCase=1; testCase<=T; testCase++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int N = Integer.parseInt(st.nextToken());
+            int M = Integer.parseInt(st.nextToken());
+            st = new StringTokenizer(br.readLine());
+            int c1 = Integer.parseInt(st.nextToken());
+            int c2 = Integer.parseInt(st.nextToken());
+            int[][] arr = new int[N+M][2];
+            st = new StringTokenizer(br.readLine());
+            for (int i=0; i<N; i++) {
+                arr[i][0] = 0;
+                arr[i][1] = Integer.parseInt(st.nextToken());
+            }
+            st = new StringTokenizer(br.readLine());
+            for (int i=0; i<M; i++) {
+                arr[i+N][0] = 1;
+                arr[i+N][1] = Integer.parseInt(st.nextToken());
+            }
+
+            Arrays.sort(arr, new Comparator<int[]>(){
+                @Override
+                public int compare(int[] a, int[] b) {
+                    return a[1]-b[1];
+                }
+            });
+
+            long min = Long.MAX_VALUE;
+            long count = 0;
+            for (int i=1; i<arr.length; i++) {
+                if (arr[i][0]!=arr[i-1][0]) {
+                    int len = Math.abs(arr[i][1]-arr[i-1][1]);
+                    if (len<min) {
+                        min=len;
+                        count=1;
+                    } else if (len==min) {
+                        count++;
+                    }
+                }
+            }
+            min += Math.abs(c1-c2);
+
+            System.out.println("#"+testCase+" "+min+" "+count);
+        }
+    }
 }
