@@ -16,13 +16,12 @@ public class S10507_영어공부 {
             for (int i=0; i<N; i++) {
                 study[i] = Integer.parseInt(st.nextToken());
             }
-            Arrays.sort(study);
             int[] arr = new int[study[study.length-1]+P+1];
             for (int tmp : study) {
                 arr[tmp]++;
             }
 
-            int lt = 1;
+            int lt = 0;
             int rt = N+P;
             int answer = -1;
             while (lt<=rt) {
@@ -40,32 +39,21 @@ public class S10507_영어공부 {
     }
 
     public static boolean canStudy(int[] arr, int change, int days) {
-        int lt = 1;
-        int rt = 1;
+        int lt = 0;
         int count = 0;
-        while (lt<=rt && rt<arr.length) {
-            while (rt<arr.length && count<=change) {
-                if (arr[rt]==0) {
-                    count++;
-                }
-                if (count==change) {
-                    while (rt+1<arr.length && arr[rt+1]==1) {
-                        rt++;
-                    }
-                    break;
-                }
-                rt++;
+        for (int rt=0; rt<arr.length; rt++) {
+            if (arr[rt]==0) {
+                count++;
             }
-            if (days<=rt-lt+1 || rt==arr.length && days<=rt-lt) {
-                return true;
-            }
-            while (lt<arr.length && count==change) {
+            while (change<count) {
                 if (arr[lt]==0) {
                     count--;
                 }
                 lt++;
             }
-            rt++;
+            if (days<=rt-lt+1) {
+                return true;
+            }
         }
 
         return false;
