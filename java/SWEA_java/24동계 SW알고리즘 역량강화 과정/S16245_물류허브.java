@@ -48,26 +48,23 @@ class UserSolution_S16245_물류허브 {
             Arrays.fill(disReverse[i], Integer.MAX_VALUE);
         }
 
-        dij(list, dis);
-        dij(listReverse, disReverse);
-
         return index;
     }
 
-    public static void dij(ArrayList<ArrayList<City>> list, int[][] dis) {
-        for (int main=1; main<=index; main++) {
-            PriorityQueue<City> q = new PriorityQueue<>();
-            q.offer(new City(main, 0));
-            dis[main][main]=0;
+    public static void dij(ArrayList<ArrayList<City>> list, int[][] dis, int main) {
+        PriorityQueue<City> q = new PriorityQueue<>();
+        q.offer(new City(main, 0));
+        dis[main][main]=0;
+        int check[] = new int[index+1];
 
-            while (!q.isEmpty()) {
-                City tmp = q.poll();
-                if (tmp.cost<=dis[main][tmp.go]) {
-                    for (City next : list.get(tmp.go)) {
-                        if (tmp.cost+next.cost<dis[main][next.go]) {
-                            dis[main][next.go]=tmp.cost+next.cost;
-                            q.offer(new City(next.go, dis[main][next.go]));
-                        }
+        while (!q.isEmpty()) {
+            City tmp = q.poll();
+            if (tmp.cost<=dis[main][tmp.go]) {
+                for (City next : list.get(tmp.go)) {
+                    if (tmp.cost+next.cost<dis[main][next.go] || tmp.cost+next.cost==dis[main][next.go]&&check[next.go]==0) {
+                        check[next.go]=1;
+                        dis[main][next.go]=tmp.cost+next.cost;
+                        q.offer(new City(next.go, dis[main][next.go]));
                     }
                 }
             }
@@ -77,24 +74,21 @@ class UserSolution_S16245_물류허브 {
     public void add(int sCity, int eCity, int mCost) {
         int start = convert.get(sCity);
         int end = convert.get(eCity);
-        addDij(list, dis, start, end, mCost);
-        addDij(listReverse, disReverse, end, start, mCost);
-    }
-
-    public static void addDij(ArrayList<ArrayList<City>> list, int[][] dis, int start, int end, int cost) {
-        list.get(start).add(new City(end, cost));
-        dij(list, dis);
+        list.get(start).add(new City(end, mCost));
+        listReverse.get(end).add(new City(start, mCost));
     }
 
     public int cost(int mHub) {
+        int hub = convert.get(mHub);
+        dij(list, dis, hub);
+        dij(listReverse, disReverse, hub);
+
         int sum = 0;
         for (int i=1; i<=index; i++) {
-            sum += dis[convert.get(mHub)][i];
-            sum += disReverse[convert.get(mHub)][i];
+            sum += dis[hub][i];
+            sum += disReverse[hub][i];
         }
-//        System.out.println(Arrays.deepToString(dis));
-//        System.out.println(Arrays.deepToString(disReverse));
-//        System.out.println(convert.get(mHub)+" / "+sum);
+
         return sum;
     }
 }
