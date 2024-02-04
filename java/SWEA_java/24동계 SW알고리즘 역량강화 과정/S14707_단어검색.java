@@ -5,6 +5,7 @@ class UserSolution_S14707_단어검색 {
 
     static Trie[] tries;
     static int index;
+    static final char EMPTY = '\0';
 
     void init() {
         tries = new Trie[800000];
@@ -57,12 +58,15 @@ class UserSolution_S14707_단어검색 {
                     for (char tmp : now.childs.keySet()) {
                         q.offer(now.childs.get(tmp).index);
                     }
-                } else {
+                } else if (c==EMPTY) {
                     count += now.count;
                     if (remove) {
                         now.count = 0;
                     }
                 }
+            }
+            if (c==EMPTY) {
+                break;
             }
         }
 
